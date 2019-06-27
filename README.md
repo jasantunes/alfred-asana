@@ -8,9 +8,7 @@ You can add task to asana (`a`).
 
 ### access token
 
-Get your asana personal access token.
-
-@see https://asana.com/guide/help/api/api
+[Get your asana personal access token.](https://asana.com/guide/help/api/api)
 
 ### Env
 

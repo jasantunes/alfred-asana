@@ -1,6 +1,8 @@
-# Asana Workflow for Alfred 4
+# Asana Workflow for [Alfred 4](http://www.alfredapp.com)
 
 You can add task to asana (`a`).
+
+**[DOWNLOAD](https://github.com/dito/alfred-asana/releases)**
 
 ## Setup
 

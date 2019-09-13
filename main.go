@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 	"strings"
 
@@ -12,13 +13,13 @@ var (
 	wf          *aw.Workflow
 	client      *asana.Client
 	taskName    string
-	taskNote    string
 	assignee    string
 	workspaceID string
 )
 
 func init() {
 	wf = aw.New()
+	wf.Configure(aw.TextErrors(true))
 	client, _ = asana.NewClient()
 	assignee = os.Getenv("ASANA_ASSIGNEE")
 	workspaceID = os.Getenv("ASANA_WORKSPACE_ID")
@@ -26,15 +27,12 @@ func init() {
 
 func run() {
 	if args := os.Args[1:]; len(args) > 0 {
-		taskName = args[0]
-		if len(args) > 1 {
-			taskNote = strings.Join(args[1:], "\n")
-		}
+		taskName = strings.Join(args, " ")
+		fmt.Printf("Task added")
 	}
 
 	client.CreateTask(&asana.TaskRequest{
 		Assignee:  assignee,
-		Notes:     taskNote,
 		Name:      taskName,
 		Workspace: workspaceID,
 	})
